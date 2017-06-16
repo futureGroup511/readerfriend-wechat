@@ -1,0 +1,19 @@
+<!--register.wxml-->
+<view class="container">
+  <view bindtap="bindViewTap" class="userimage">
+      <image class="userimage-head" src="{{userInfo.avatarUrl}}"></image>
+      <text class="userimage-name">需要我们的服务</text>
+       <text class="userimage-name">请输入您的手机</text>
+  </view>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+     <view class="section-top">
+         <label class="section-image">    
+              <image class="sectionimage-head" src="/image/phone.png"></image>
+         </label>
+         <input class="sectiontext" bindinput="phoneInput" disabled="{{phoneInputDisabled}}" maxlength="11" placeholder="请输入手机号" />
+     </view>
+     <view class="section-bottom">
+          <button type="primary" disabled="{{btnDisabled}}" bindtap="nextStep">{{btnValue}}  </button> 
+     </view>
+  </form>
+</view>

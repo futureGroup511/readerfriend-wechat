@@ -1,0 +1,131 @@
+<!--detail.wxml-->
+<!--未解决问题:
+  点击评论输入框时,scroll-view 上滑
+ -->
+<scroll-view scroll-y>
+    <!--页面整体容器-->
+    <view>
+    <!--顶部图书信息容器-->
+		<view id="bookInfo" style="padding:20rpx;">
+			<view id="bookInfo-imgView">
+				<image style="width:300rpx;height:350rpx;background-color: #eeeeee;" mode="aspectFill" src="{{bookInfo.image}}"></image>
+			</view>
+			<view id="bookInfo-infoView">
+        <view id="bookInfo-info-title">
+          <text style="">{{bookInfo.title}}\n</text>
+        </view>
+        <view id="bookInfo-info-author">
+          <text style="font-size:0.8em;color:#666666;">作者:</text>
+          <text wx:for="{{bookInfo.author}}" style="font-size:0.8em;color:#666666;">{{item}} </text>
+        </view>
+        
+        <view id="bookInfo-info-surplus">
+          <text style="font-size:0.8em;color:#666666;">藏书量:{{bookSurplus}}</text>
+        </view>
+        
+        <view id="bookInfo-info-rating">
+          <text style="font-size:0.8em;color:#666666;">评分:</text>
+          <label wx:for="{{bookInfo.ratingStar}}">
+            <image wx:if="{{item == 1}}" src="/image/star_golden.png" style="width:30rpx;height:30rpx"></image>
+            <image wx:if="{{item == 0}}" src="/image/star_gray.png" style="width:30rpx;height:30rpx"></image>
+          </label>
+        </view>
+        <button type="primary" bindtap="reserveBook" size="mini" style="position:absolute;bottom:0rpx;">预定</button>
+        <button type="primary" disabled="{{bookSurplus==0}}" size="mini" style="position:absolute;bottom:0rpx;right:10rpx;">借书</button>
+        
+			</view>
+		</view><!--顶部图书信息容器-->
+    <!-- 选项卡-->
+    <view class="swiper-tab">
+      <view class="swiper-tab-list {{currentTab==0?'swiper-tab-list-selected':''}}" data-index="0" bindtap="swichTab">简介</view>
+      <view class="swiper-tab-list {{currentTab==1?'swiper-tab-list-selected':''}}" data-index="1" bindtap="swichTab">书评</view>
+      <view class="swiper-tab-list {{currentTab==2?'swiper-tab-list-selected':''}}" data-index="2" bindtap="swichTab">详情</view>
+    </view><!-- 选项卡-->
+    <!-- 选项卡内容-->
+    <view >
+      <!-- summary -content-->
+      <view style="{{currentTab==0?'':'display:none;'}}">
+        <view class="bookInfo-summary">
+          <scroll-view scroll-y class="bookInfo-summary-text">
+            {{bookInfo.summary}}
+          </scroll-view>
+        </view>
+        <!--推荐书籍-->
+        <view id="recommendBookView" class="">
+          <view style="margin-top:20rpx;color: #555555;">相关书籍</view>
+          <view class="height20"></view>
+          
+          <view class="recommendBook-item" wx:for="{{recommendBook}}">
+            <navigator url="/pages/book/detail?isbn={{item.isbn13}}" open-type="redirect">
+            <image style="width:200rpx;height:250rpx;background-color: #eeeeee;" mode="aspectFill" src="{{item.image}}"></image>
+            <text>\n</text>
+            <text class="recommendBook-item-title">{{item.title}}</text>
+            </navigator>
+          </view>
+        </view><!--推荐书籍-->
+      </view><!-- summary -content-->
+
+      <!-- comment content -->
+      <view style="{{currentTab==1?'':'display:none;'}}">
+       <!-- 评论输入框-->
+       <view id="commentView">
+        <view class="comment-userInfo">
+            <image class="comment-userHead" src="{{userInfo.avatarUrl}}"></image>
+            <text>{{userInfo.nickName}}</text>
+            <button type="primary" size="mini" style="float:right;" bindtap="postComment">发表</button>
+        </view>
+        <view>
+        <textarea id="comment-input" maxlength="200" bindfocus="commentFocus" bindinput="commentInput" value="{{comment}}"></textarea>
+        </view>
+       </view><!-- 评论输入框-->
+       <!-- 用户评论-->
+       <view>
+        <view class="comment-item" wx:for="{{BookComments}}">
+          <image class="comment-userHead" src="{{item.userHead}}"></image>
+          <text class="comment-item-nickname">{{item.userNickName}}</text>
+          <text class="comment-item-time">{{item.createTime}}</text>
+          <view class="comment-item-content">
+          {{item.content}}
+          </view>
+        </view>
+       </view>
+       <!-- 用户评论-->
+       <view style="height:750rpx"></view>
+      </view> 
+      <!-- comment content -->
+
+      <!-- 详情 content -->
+      <view id="bookDetail" style="{{currentTab==2?'':'display:none;'}}">
+       <text class="bookDetail-name">{{bookInfo.title}}</text>
+       <text class="bookDetail-key">作者:</text>
+       <text class="bookDetail-val" wx:for="{{bookInfo.author}}">{{item}}\n</text>
+       <text class="bookDetail-key">出版社:</text>
+       <text class="bookDetail-val">{{bookInfo.publisher}}\n</text>
+       
+       <text class="bookDetail-key">出版日期:</text>
+       <text class="bookDetail-val">{{bookInfo.pubdate}}\n</text>
+
+       <text class="bookDetail-key">页数:</text>
+       <text class="bookDetail-val">{{bookInfo.pages}}\n</text>
+       
+       <text class="bookDetail-key">定价:</text>
+       <text class="bookDetail-val">{{bookInfo.price}}\n</text>
+       
+       <text class="bookDetail-key">藏书量:</text>
+       <text class="bookDetail-val">{{bookInfo.surplus}}\n</text>
+       
+       <text class="bookDetail-key">简介:\n</text>
+       <text class="bookDetail-val">{{bookInfo.summary}}\n</text>
+
+       <text class="bookDetail-key">目录:\n</text>
+       <text class="bookDetail-val">{{bookInfo.catalog}}\n</text>
+       
+       
+        
+
+      </view><!-- 详情 content -->
+
+      
+    </view><!-- 选项卡内容-->
+	</view><!--页面整体容器结束-->
+</scroll-view>

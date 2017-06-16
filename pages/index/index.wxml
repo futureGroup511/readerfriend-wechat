@@ -1,0 +1,70 @@
+<!--index.wxml-->
+<view class="container1">
+  <view  bindtap="scanCode" class="usercodebig">
+    <image class="usercode" src="/image/code.png"></image>
+    <text class="usercodetext">扫一扫</text>
+  </view>
+  <view class="userright">
+         <label class="user-image">    
+              <image class="userimage-search" src="/image/search.png"></image>
+         </label>
+         <input class="searchtext" bindinput="searchInput" disabled="{{phoneInputDisabled}}" maxlength="11" placeholder="人间天堂" />
+  </view>
+</view>
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{images}}">
+    <swiper-item>
+      <image src="{{item.imgUrl}}" class="slide-image" width="100%" height="150" bindtap="indexImageTap" data-image="{{item}}"/>
+    </swiper-item>
+  </block>
+</swiper>
+<view class="tableone">
+ <tr>
+   <td><image src="/image/wenxue.png"></image></td>
+    <td><image src="/image/yishu.png"></image></td>
+     <td><image src="/image/qingchun.png"></image></td>
+     <td><image src="/image/xiaoshuo.png"></image></td>
+   </tr>
+   <tr>
+        <td><span>文学类</span></td>
+       <td><span>艺术类</span></td>
+        <td><span>青春类</span></td>
+         <td><span>小说类</span></td>
+   </tr>
+   <tr>
+   <td><image class="second" src="/image/kepu.png"></image></td>
+    <td><image class="second" src="/image/jisuanji.png"></image></td>
+     <td><image class="second" src="/image/zhexue.png"></image></td>
+     <td><image class="second" src="/image/caijing.png"></image></td>
+   </tr>
+   <tr>
+        <td><span>科普类</span></td>
+       <td><span>计科类</span></td>
+        <td><span>哲学类</span></td>
+         <td><span>财经类</span></td>
+   </tr>
+</view>
+
+<view class="recommendBooks-item" wx:for="{{recommendBooks}}">
+  <view class="listone" bindtap="recommendBookTap" data-book="{{item}}">
+     <view class="listleft">
+         <image src="{{item.image}}"></image>
+     </view>
+      <view class="listright">
+         <text>{{item.title}}\n</text>
+         <text>作者：</text>
+         <text wx:for="{{item.author}}">{{item}} </text>
+         <text>\n</text>
+        <text>评分：{{item.rating.average}}</text>
+      </view>
+  </view>
+  <view class="listtwo" style="{{summaryControl[index]?'':'display:none'}}">
+      <text>{{item.summary}}</text>
+  </view>
+  <view class="page">
+      <p bindtap="onChangeShowState" data-index="{{index}}">{{summaryControl[index]?'图书简介  >':'图书简介  >'}}</p>
+  </view>
+<view style="height:30rpx;">
+</view>
+</view>

@@ -1,0 +1,12 @@
+/* remind.wxss */
+#icon-view{
+  width: 200rpx;
+  text-align: center;
+  margin: 100rpx auto;
+}
+#remind-view{
+  margin: 50px 100rpx;
+}
+#remind{
+  line-height: 1.2em;
+}

@@ -1,0 +1,47 @@
+/* register.wxss */
+.userimage{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.userimage-head{
+  width:128rpx;
+  height:128rpx;
+  margin:20rpx;
+   border-radius: 50%;
+}
+.userimage-name{
+  color:black;
+}
+.sectionimage-head{
+  width:80rpx;
+  height:90rpx;
+}
+userimage{
+  margin-bottom:20px;
+}
+.section-image{
+  width:90rpx;
+  height:90rpx;
+  position:absolute;
+  padding-top:2px;
+  border-right:6px #EAEAEA;
+}
+.section-top{
+  margin-top:60px;
+}
+.sectiontext{
+   width:400rpx;
+   padding:0 100rpx;
+   height:90rpx;
+   border:2px solid #EAEAEA;
+   border-radius:5px;
+}
+.section-bottom{
+  margin-top:30px;
+}
+.userimage-nameone{
+ margin-top:10px;
+  color:red;
+  display:block;
+}

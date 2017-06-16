@@ -1,0 +1,17 @@
+<!--remind.wxml-->
+<view id="icon-view" class="classname">
+  <icon id="icon" type="{{icon}}" size="100"/>
+</view>
+<view id="remind-view">
+  <text id="remind">{{remind}}</text>
+</view>
+
+<view id="btn-view">
+  <view style="width:250rpx;float:left;margin-left:100rpx;">
+  <button bindtap="toindex" type="primary" size="default">首页</button>
+  </view>
+  <view style="width:250rpx;float:right;margin-right:100rpx;">
+  <button bindtap="returnpage" type="primary" size="default">返回</button>
+  </view>
+</view>
+
