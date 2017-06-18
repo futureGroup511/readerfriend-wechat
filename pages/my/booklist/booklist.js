@@ -1,26 +1,29 @@
 // booklist.js
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    "books":[{
+      "name":"测试-书的名字",
+      "isbn":"1545454545",
+      "nullBook":true
+    }]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
     var o = options.o;
     console.debug(o)
-    app.myRequest({
-      "url": app.url('my/getBooks?o=')+o,
-      "method":"get",
-      success:function(res){
-        console.debug(res)
-      }
-    });
+    that.setData({
+      "option":o
+    })
+    that.init();
   },
 
   /**
@@ -70,5 +73,55 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  init:function(){
+    var that = this
+    var o = that.data.option
+    app.myRequest({
+      "url": app.url('my/getBooks?o=') + o,
+      "method": "get",
+      success: function (res) {
+        console.debug(res)
+        if (res.data.result == 0) {
+          that.setData({
+            "books": res.data.books
+          })
+          if (res.data.books.length == 0){
+            that.setData({
+              "remind":"还没有书哇"
+            })
+          }
+        }
+      }
+    });
+  },
+  deletebook:function(e){
+    wx.showLoading({
+      title: '删除中',
+    })
+    console.debug(e)
+    var that = this
+    var isbn = e.currentTarget.dataset.isbn;
+    console.debug(isbn)
+    if(isbn){
+      app.myRequest({
+        "url": app.url('book/deleteReserveBook'),
+        "data":{
+          "isbn":isbn
+        },
+        success:function(res){
+          console.debug(res)
+          if(res.data.result == 0){
+            that.init();
+            wx.hideLoading();
+            wx.showToast({
+              title: '删除成功!',
+            })
+          }else{
+            
+          }
+        }
+      });
+    }
   }
 })

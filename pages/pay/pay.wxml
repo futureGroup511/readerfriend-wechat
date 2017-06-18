@@ -1,0 +1,18 @@
+<view style="padding:20rpx;border-bottom:1px solid #e5e5e5;">
+  <text>支付</text>
+</view>
+
+<view class="menu-title" style="margin:50rpx 0;padding:20rpx;">
+  <text>{{remind}}</text>
+  <text style="display:inline-block;width:450rpx;">{{name}}</text>
+  <text style="display:inline-block;float:right;width:150rpx;">{{money}}</text>
+</view>
+
+
+<view style="margin:100rpx 20rpx 0; ">
+  <button bindtap="ipay" type="primary" disabled="{{remind}}">确认支付</button>
+</view>
+
+<view style="margin:20rpx;">
+  <button bindtap="returnPage">取消</button>
+</view>

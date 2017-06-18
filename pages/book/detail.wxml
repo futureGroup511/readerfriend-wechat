@@ -20,7 +20,7 @@
         </view>
         
         <view id="bookInfo-info-surplus">
-          <text style="font-size:0.8em;color:#666666;">藏书量:{{bookSurplus}}</text>
+          <text style="font-size:0.8em;color:#666666;">藏书量:{{bookSurplus}}/{{allBookNum}}</text>
         </view>
         
         <view id="bookInfo-info-rating">
@@ -31,7 +31,7 @@
           </label>
         </view>
         <button type="primary" bindtap="reserveBook" size="mini" style="position:absolute;bottom:0rpx;">预定</button>
-        <button type="primary" disabled="{{bookSurplus==0}}" size="mini" style="position:absolute;bottom:0rpx;right:10rpx;">借书</button>
+        <button type="primary" disabled="{{bookSurplus==0}}" size="mini" bindtap="borrowBook" style="position:absolute;bottom:0rpx;right:10rpx;">借书</button>
         
 			</view>
 		</view><!--顶部图书信息容器-->

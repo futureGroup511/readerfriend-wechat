@@ -8,6 +8,7 @@ Page({
    */
   data: {
     isbn:"",
+    bookId:0,
     currentTab: 0,
     bookInfo:{},
     comment:"",
@@ -27,6 +28,7 @@ Page({
       "author":["..."]
     },
     "bookSurplus": 0,
+    "allBookNum":'...',
     BookComments:[
       {             
         "userHead":"",
@@ -42,6 +44,12 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    var id = options.id
+    if(id){
+      that.setData({
+        "bookId": id
+      })
+    }
     /*
     wx.getSystemInfo({
       success: function(res) {
@@ -69,11 +77,14 @@ Page({
         success:function(res){
           console.log("获取藏书量成功")
           var sur = 0;
+          var all = 0;
           if(res.data.result ==0 ){
             sur = res.data.surplus
+            all = res.data.all
           }
           that.setData({
-            "bookSurplus": sur
+            "bookSurplus": sur,
+            "allBookNum":all
           })
         },
         fail:function(res){
@@ -325,8 +336,13 @@ Page({
         }
       })
     }
+  },
+  borrowBook:function(e){
+   console.debug(e)
+   var isbn = this.data.isbn
+   var id = this.data.bookId
+   wx.navigateTo({
+     url: '/pages/pay/pay?isbn='+isbn+'&id='+id,
+   }) 
   }
 })
-/*
-
-          */

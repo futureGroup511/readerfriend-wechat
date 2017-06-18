@@ -1,16 +1,23 @@
 <!--booklist.wxml-->
-<!--bookbasket.wxml-->
-<view class="total">
-  <view class="weit">
-    <text class="weitone">飘 ></text>
-    <text class="weittwo">等待借书</text>
+
+<view class="menu-title" style="padding:20rpx;border-bottom:1px solid #e5e5e5;">
+  <text style="display:inline-block;width:450rpx;">名字</text>
+  <text style="display:inline-block;width:150rpx;">有库存</text>
+  <text style="display:inline-block;width:100rpx;">删除</text>
+</view>
+
+<view class="book" style="margin:20rpx;" wx:for="{{books}}">
+  <navigator style="display:inline-block;" url="/pages/book/detail?isbn={{item.isbn}}">
+    <view class="book-name">
+      <text class="book-name">{{item.name}}</text>
+    </view>  
+  </navigator>
+  <icon class="stock-icon" type="{{item.nullBook?'cancel':'success'}}" />
+  <view class="delete-view" bindtap="deletebook" data-isbn="{{item.isbn}}">
+   <icon class="stock-icon" type="clear" />
   </view>
-  <view class="weit">
-    <text class="weitone">平凡的世界 ></text>
-    <text class="weittwo">等待借书</text>
-  </view>
-  <view class="weit">
-    <text class="weitone">人间天堂 ></text>
-    <text class="weittwo">等待借书</text>
-  </view>
+</view>
+
+<view style="margin:50rpx;">
+  <text>{{remind}}</text>
 </view>
