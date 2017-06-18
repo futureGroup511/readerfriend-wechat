@@ -4,12 +4,14 @@
     <image class="usercode" src="/image/code.png"></image>
     <text class="usercodetext">扫一扫</text>
   </view>
-  <view class="userright">
-         <label class="user-image">    
-              <image class="userimage-search" src="/image/search.png"></image>
-         </label>
-         <input class="searchtext" bindinput="searchInput" disabled="{{phoneInputDisabled}}" maxlength="11" placeholder="人间天堂" />
-  </view>
+  <navigator url="/pages/search/search">
+    <view class="userright">
+          <label class="user-image">    
+                <image class="userimage-search" src="/image/search.png"></image>
+          </label>
+          <input class="searchtext" bindfocus="searchFocus" disabled="{{phoneInputDisabled}}" maxlength="11" placeholder="人间天堂" />
+    </view>
+  </navigator>
 </view>
 <swiper indicator-dots="{{indicatorDots}}"
   autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">

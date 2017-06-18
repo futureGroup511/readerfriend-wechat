@@ -1,26 +1,25 @@
 // loading.js
 var app = getApp();
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    remind:"登录中，请稍候..."
+    inputVal:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
@@ -62,10 +61,10 @@ Page({
                     console.error("登录失败：" + res)
                   }
                 },
-                fail:function(res){
+                fail: function (res) {
                   that.setData({
                     "remind": "错误,网络连接失败."
-                  }) 
+                  })
                 }
               }
               app.myRequest(obj);
@@ -89,34 +88,40 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
+  },
+  searchInput:function(e){
+    this.setData({
+      "inputVal": e.detail.value
+    })
+    console.debug(this.data.inputVal)
   }
 })

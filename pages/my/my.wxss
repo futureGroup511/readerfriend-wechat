@@ -1,0 +1,67 @@
+/* my.wxss */
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+.container{
+  border-bottom:1px solid #E3E3E3;
+ padding-bottom:18rpx;
+}
+.orderbig{
+  width:100%;
+  border-bottom:1px solid #E3E3E3;
+  padding-bottom:18rpx;
+}
+.order{
+  width:96%;
+  margin:0 auto;
+  margin-top:20rpx;
+}
+.orderright{
+  float:right;
+}
+.orderbigone{
+  width:100%;
+  border-bottom:1px solid #E3E3E3;
+  padding-bottom:18rpx;
+}
+.orderone{
+  width:96%;
+  margin:0 auto;
+  margin-top:20rpx;
+}
+.orderrightone{
+  float:right;
+}
+.orderbigtwo{
+  width:100%;
+  border-bottom:1px solid #E3E3E3;
+  padding-bottom:18rpx;
+}
+.ordertwo{
+  width:96%;
+  margin:0 auto;
+  margin-top:20rpx;
+}
+.orderrighttwo{
+  float:right;
+}
+.last{
+  margin-top:70rpx;
+}

@@ -1,0 +1,15 @@
+<!--bookbasket.wxml-->
+<view class="total">
+  <view class="weit">
+    <text class="weitone">飘 ></text>
+    <text class="weittwo">等待借书</text>
+  </view>
+  <view class="weit">
+    <text class="weitone">平凡的世界 ></text>
+    <text class="weittwo">等待借书</text>
+  </view>
+  <view class="weit">
+    <text class="weitone">人间天堂 ></text>
+    <text class="weittwo">等待借书</text>
+  </view>
+</view>

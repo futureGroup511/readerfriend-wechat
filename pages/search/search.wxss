@@ -1,0 +1,60 @@
+.containertwo{
+  width:100%;
+   margin-top:10rpx;
+   border-bottom:1px solid #D1D1D1;
+  padding-bottom:18rpx;
+}
+.include{
+   width:77%;
+   height:80rpx;
+   float:left;
+   margin-right: 2%;
+   background-color:#F0F0F0;
+   margin-left:2%;
+}
+.userimagesearch{
+  width:50rpx;
+  height:50rpx;
+   position:absolute;
+   padding-top:13rpx;
+   padding-left:18rpx;
+}
+.searchtext{
+  padding-left:80rpx;
+  padding-top:15rpx;
+}
+.sousuo{
+  width:18%;
+  height:80rpx;
+  margin-right:2%;
+  border:none;
+  background-color:#1AAD19;
+  color:white;
+  font-size:35rpx;
+
+}
+.content{
+width:96%;
+margin:0 auto;
+margin-top:10rpx;
+border-bottom:1px solid #E3E3E3;
+ padding-bottom:18rpx;
+}
+.content .first{
+  font-size:30rpx;
+}
+.contentone{
+  width:96%;
+margin:0 auto;
+}
+.contentone .second{
+    font-size:28rpx;
+    color:grey;
+    }
+.contentone .third{
+  float:right;
+  color:grey;
+}
+.contentone{
+  margin-top:20rpx;
+}

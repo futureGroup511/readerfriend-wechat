@@ -1,12 +1,16 @@
 {
   "pages": [
+    "pages/my/my",
     "pages/loading/loading",
     "pages/logs/logs",
     "pages/index/index",
     "pages/register/register",
     "pages/register/inputVCode",
     "pages/remind/remind",
-    "pages/book/detail"
+    "pages/book/detail",
+    "pages/search/search",
+    "pages/bookbasket/bookbasket",
+    "pages/my/booklist/booklist"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -26,13 +30,13 @@
       {
         "iconPath": "image/book1.png",
         "selectedIconPath": "image/book.png",
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/bookbasket/bookbasket",
         "text": "借书篮"
       },
       {
         "iconPath": "image/my.png",
         "selectedIconPath": "image/my1.png",
-        "pagePath": "pages/logs/one",
+        "pagePath": "pages/my/my",
         "text": "我的"
       }
     ]

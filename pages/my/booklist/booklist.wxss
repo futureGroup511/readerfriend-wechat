@@ -1,0 +1,11 @@
+/* booklist.wxss */
+.weit{
+  width:96%;
+  margin:0 auto;
+  margin-top:25rpx;
+  border-bottom:1px solid #E3E3E3;
+ padding-bottom:18rpx;
+}
+.weit .weittwo{
+  float:right;
+}

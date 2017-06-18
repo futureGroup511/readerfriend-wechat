@@ -109,5 +109,10 @@ Page({
         url: '/pages/book/detail?isbn=' + isbn,
       })
     }
+  },
+  searchFocus:function(e){
+    wx.navigateTo({
+      url: '/pages/search/search',
+    })
   }
 })

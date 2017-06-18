@@ -1,0 +1,35 @@
+<!--my.wxml-->
+<view class="container">
+  <view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+</view>
+<navigator url="booklist/booklist?o=reserve">
+<view class="orderbig">
+ <view class="order">
+    <text class="orderleft">预定图书</text>
+    <text class="orderright">></text>
+  </view>
+</view>
+</navigator>
+<navigator url="booklist/booklist?o=reserve">
+<view class="orderbigone">
+ <view class="orderone">
+    <text class="orderleftone">待还图书</text>
+    <text class="orderrightone">></text>
+  </view>
+</view>
+</navigator>
+<navigator url="booklist/booklist?o=reserve">
+<view class="orderbigtwo">
+ <view class="ordertwo">
+    <text class="orderlefttwo">推荐阅读</text>
+    <text class="orderrighttwo">></text>
+  </view>
+</view>
+</navigator>
+<view class="last">
+  <button type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}"
+        disabled="{{disabled}}" bindtap="primary">退出账号</button>
+</view>

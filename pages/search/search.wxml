@@ -1,0 +1,28 @@
+<view class="containertwo">
+  <view class="include">
+   <label class="user-image">    
+              <image class="userimagesearch" src="/image/search.png"></image>
+         </label>
+         <input class="searchtext" bindinput="searchInput" focus="true" maxlength="11"   placeholder="人间天堂" /> 
+  </view>
+  <button class="sousuo">搜索</button>
+</view>
+<view class="content">
+     <text class="first">搜索历史\n</text>
+  </view>
+  <view class="contentone">
+     <text class="second">平凡的世界</text>
+     <text class="third">×</text>
+</view>
+ <view class="contentone">
+     <text class="second">平凡的世界</text>
+     <text class="third">×</text>
+</view>
+ <view class="contentone">
+     <text class="second">平凡的世界</text>
+     <text class="third">×</text>
+</view>
+ <view class="contentone">
+     <text class="second">平凡的世界</text>
+     <text class="third">×</text>
+</view>
