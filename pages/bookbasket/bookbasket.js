@@ -1,18 +1,19 @@
 // bookbasket.js
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    "src":""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+   
   },
 
   /**
@@ -26,7 +27,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    wx.showLoading({
+      title: '加载中',
+    })
+    var token = app.globalData.token
+    var x = Math.random()
+    var src = app.url('borrowToken/createToken?token=') + token + '&x='+ x
+    console.debug(src)
+    this.setData({
+      "src": src
+    })
+    wx.hideLoading();
   },
 
   /**
@@ -62,5 +73,18 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  refushCode:function(res){
+    wx.showLoading({
+      title: '加载中',
+    })
+    var token = app.globalData.token
+    var x = Math.random()
+    var src = app.url('borrowToken/createToken?token=') + token + '&x=' + x
+    console.debug(src)
+    this.setData({
+      "src": src
+    })
+    wx.hideLoading();
   }
 })

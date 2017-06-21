@@ -1,11 +1,11 @@
-/* bookbasket.wxss */
-.weit{
-  width:96%;
-  margin:0 auto;
-  margin-top:25rpx;
-  border-bottom:1px solid #E3E3E3;
- padding-bottom:18rpx;
+.total{
+  width: 100%;
+  text-align: center;
 }
-.weit .weittwo{
-  float:right;
+#image{
+  width: 600rpx;
+  height: 600rpx;
+}
+.refush-view{
+  padding: 50rpx;
 }

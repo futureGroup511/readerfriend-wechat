@@ -30,8 +30,9 @@
   </view>
 </view>
 </navigator>
--->
+
 <view class="last">
   <button type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}"
         disabled="{{disabled}}" bindtap="primary">退出账号</button>
 </view>
+-->

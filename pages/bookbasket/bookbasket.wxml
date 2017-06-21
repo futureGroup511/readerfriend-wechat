@@ -1,15 +1,10 @@
 <!--bookbasket.wxml-->
 <view class="total">
-  <view class="weit">
-    <text class="weitone">飘 ></text>
-    <text class="weittwo">等待借书</text>
-  </view>
-  <view class="weit">
-    <text class="weitone">平凡的世界 ></text>
-    <text class="weittwo">等待借书</text>
-  </view>
-  <view class="weit">
-    <text class="weitone">人间天堂 ></text>
-    <text class="weittwo">等待借书</text>
-  </view>
+ <image id="image" src="{{src}}"></image>
+</view>
+<view class="remind-view">
+  <text>离开图书馆时,请出示此二维码,1分钟有效</text>
+</view>
+<view class="refush-view">
+ <button bindtap="refushCode" type="primary">刷新二维码</button> 
 </view>
