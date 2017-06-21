@@ -1,4 +1,5 @@
 // pay.js
+var app = getApp()
 Page({
 
   /**
@@ -81,7 +82,64 @@ Page({
   
   },
   ipay:function(e){
+    var that = this
     console.debug(e)
+    wx.showLoading({
+      title: '借书中',
+    })
+    app.myRequest({
+      "url": app.url('book/borrowBook'),
+      "data":{
+        "id":that.data.id
+      },
+      success:function(res){
+        console.debug(res)
+        wx.hideLoading();
+        if(res.data.result == 0){
+          console.debug("借书成功")
+          wx.showToast({
+            title: '借书成功',
+            icon:'success'
+          })
+        } else if (res.data.result == 51){
+          console.debug("借书失败,result51")
+          wx.showToast({
+            title: '借书失败,每人只能借2本书',
+            image: '/image/error.png',
+            icon:'loading'
+          })
+        } else {
+          console.debug("借书失败,result52")
+          wx.showToast({
+            title: '借书失败,您来晚了,本书刚被借',
+            image: '/image/error.png',
+            icon: 'loading'
+          })
+        }
+        setTimeout(function(){
+          wx.navigateBack({
+
+          })
+        },1500)
+        
+      },
+      fail:function(res){
+        wx.hideLoading();
+        console.debug("借书失败,网络fail")
+        wx.showToast({
+          title: '借书失败,网络错误',
+          icon: 'loading',
+          image: '/image/error.png'
+        })
+        setTimeout(function () {
+          wx.navigateBack({
+
+          })
+        }, 1500)
+
+      }
+    })
+
   },
   returnPage:function(e){
     console.debug(e)

@@ -43,6 +43,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.debug(options)
     var that = this;
     var id = options.id
     if(id){
@@ -50,15 +51,6 @@ Page({
         "bookId": id
       })
     }
-    /*
-    wx.getSystemInfo({
-      success: function(res) {
-        that.setData({
-          "systemInfo":res
-        });
-      },
-    })
-    */
     
     app.getUserInfo(function(res){
       that.setData({
@@ -70,7 +62,6 @@ Page({
     console.debug("书的isbn")
     console.debug(isbn)
     if(isbn){
-
       app.myRequest({
         "url": app.url('getBookNum?isbn=')+isbn,
         "method":"get",
@@ -234,12 +225,14 @@ Page({
             wx.showToast({
               title: '失败,您已经评论过此书',
               icon: 'loading',
+              image:'/image/error.png',
               duration: 2000
             })
           }else{
             wx.showToast({
               title: '评论失败',
               icon: 'loading',
+              image: '/image/error.png',
               duration: 2000
             })
           }
@@ -248,6 +241,7 @@ Page({
         fail:function(res){
           wx.showToast({
             title: '评论失败,网络原因',
+            image: '/image/error.png',
             icon: 'loading',
             duration: 2000
           })
@@ -341,8 +335,9 @@ Page({
    console.debug(e)
    var isbn = this.data.isbn
    var id = this.data.bookId
+   var name = this.data.bookInfo.title
    wx.navigateTo({
-     url: '/pages/pay/pay?isbn='+isbn+'&id='+id,
+     url: '/pages/pay/pay?isbn='+isbn+'&id='+id+'&name='+name,
    }) 
   }
 })

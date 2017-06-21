@@ -96,9 +96,14 @@ Page({
     });
   },
   deletebook:function(e){
-    wx.showLoading({
-      title: '删除中',
-    })
+    if('reserve' != this.data.option ){
+      wx.showToast({
+        title: '借书无法删除,还书时自动删除',
+        image: '/image/error.png'
+      })
+      return;
+    }
+    
     console.debug(e)
     var that = this
     var isbn = e.currentTarget.dataset.isbn;

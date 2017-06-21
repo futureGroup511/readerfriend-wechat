@@ -79,12 +79,17 @@ Page({
   scanCode:function(){
     wx.scanCode({
       success:function(res){
-        var result = res.result;
+        var result = res.result
+        console.debug("扫码结果:")
         if(res.scanType == 'QR_CODE'){
-
+          var resultJson = JSON.parse(result);
+          console.debug(resultJson)
+          wx.navigateTo({
+            url: '/pages/book/detail?isbn=' + resultJson.isbn + '&id=' + resultJson.id
+          })
         }else{
           wx.navigateTo({
-            url: '/pages/book/detail?isbn='+result,
+            url: '/pages/book/detail?isbn='+result
           })
         }
       },
