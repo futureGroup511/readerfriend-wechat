@@ -5,14 +5,37 @@ Page({
    * 页面的初始数据
    */
   data: {
-    inputVal:""
+    inputVal:"",
+    names:[],
+    history:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    wx.getStorage({
+      key: 'history',
+      success: function(res) {
+        var hist = res.data;
+        var history = []
+        if(hist){
+          var ii = 0;
+          for(var i = hist.length-1;i>=0;i--){
+            history[ii] = hist[i]
+            ii++;
+            if(ii>9){
+              break;
+            }
+          }
+          that.setData({
+            'history':history
+          })
+        }
+      }
+    })
+    
   },
 
   /**
@@ -27,61 +50,7 @@ Page({
    */
   onShow: function () {
     var that = this;
-    console.debug("onLaunch start.")
-    wx.login({
-      success: function (res) {
-        console.debug(res);
-        var code = res.code;
-        if (code) {
-          wx.getUserInfo({
-            success: function (res) {
-              console.debug("获取用户信息成功：")
-              console.debug(res.userInfo)
-              app.globalData.userInfo = res.userInfo;
-              that.setData({
-                "remind": "授权成功，登录中..."
-              })
-              var obj = {
-                url: app.url('login'),
-                data: { 'code': code },
-                success: function (res) {
-                  console.debug(res);
-                  if (res.data.result == 0) {
-                    app.globalData.token = res.data.token;
-                    wx.switchTab({
-                      url: '/pages/index/index'
-                    })
-                  } else if (res.data.result == 1) {
-                    app.globalData.token = res.data.token;
-                    console.debug(app.globalData)
-                    wx.redirectTo({
-                      url: '/pages/register/register'
-                    })
-                  } else {
-                    console.error("登录失败：" + res)
-                  }
-                },
-                fail: function (res) {
-                  that.setData({
-                    "remind": "错误,网络连接失败."
-                  })
-                }
-              }
-              app.myRequest(obj);
-            },
-            fail: function (res) {
-              that.setData({
-                "remind": "登录失败，请允许我们需要的授权"
-              })
-            }
-          })
-        }
-      },
-      fail: function (res) {
-        console.info("login fail")
-        console.debug(res)
-      }
-    })
+    
   },
 
   /**
@@ -119,9 +88,97 @@ Page({
 
   },
   searchInput:function(e){
+    var that = this
+    var s = e.detail.value
+
     this.setData({
-      "inputVal": e.detail.value
+      "inputVal": s
+    })
+    if(s==''){
+      that.setData({
+        'names': []
+      })
+      return;
+    }
+    app.myRequest({
+      'url': app.url('searchNameFuzzy?search=')+s,
+      success:function(res){
+        console.debug(res)
+        if(res.data.result == 0){
+          that.setData({
+            'names': res.data.names
+          })
+        }
+      }
     })
     console.debug(this.data.inputVal)
+  },
+  searchFunc:function(e){
+    var that = this
+    var s = this.data.inputVal;
+    var history = that.data.history
+    if(s && s.length>0){
+      var temp = false;
+      for(var i=0;i<history.length;i++){
+        if(history[i] == s){
+          temp = true;
+          break;
+        }
+      }
+      if(!temp){
+        history.push(s)
+      }
+      
+      that.setData({
+        'history':history
+      })
+      wx.setStorage({
+        key: 'history',
+        data: history
+      })
+    }
+    wx.redirectTo({
+      url: 'result?s='+s,
+    })
+  },
+  cleanHistoryFunc:function(e){
+    var that = this
+    that.setData({
+      'history':[]
+    })
+    wx.setStorage({
+      key: 'history',
+      data: []
+    })
+    wx.showToast({
+      title: '删除成功',
+    })
+  },
+  remindTap:function(e){
+    var s = e.currentTarget.dataset.search
+    var that = this
+    var history = that.data.history
+    if (s && s.length > 0) {
+      var temp = false;
+      for (var i = 0; i < history.length; i++) {
+        if (history[i] == s) {
+          temp = true;
+          break;
+        }
+      }
+      if (!temp) {
+        history.push(s)
+      }
+      that.setData({
+        'history': history
+      })
+      wx.setStorage({
+        key: 'history',
+        data: history
+      })
+    }
+    wx.redirectTo({
+      url: 'result?s=' + s,
+    })
   }
 })

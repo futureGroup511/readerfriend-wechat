@@ -2,27 +2,22 @@
   <view class="include">
    <label class="user-image">    
               <image class="userimagesearch" src="/image/search.png"></image>
-         </label>
-         <input class="searchtext" bindinput="searchInput" focus="true" maxlength="11"   placeholder="人间天堂" /> 
+    </label>
+    <input class="searchtext" bindinput="searchInput" focus="true" maxlength="11"   placeholder="人间天堂" /> 
   </view>
-  <button class="sousuo">搜索</button>
+  <button class="sousuo" bindtap="searchFunc">搜索</button>
+  <view id="remind">
+    <view class="remind-item" wx:for="{{names}}" bindtap="remindTap" data-search="{{item}}">
+        {{item}}
+    </view>
+
+  </view>
 </view>
 <view class="content">
      <text class="first">搜索历史\n</text>
+     <text id="cleanHistory" bindtap="cleanHistoryFunc">×</text>
   </view>
-  <view class="contentone">
-     <text class="second">平凡的世界</text>
-     <text class="third">×</text>
-</view>
- <view class="contentone">
-     <text class="second">平凡的世界</text>
-     <text class="third">×</text>
-</view>
- <view class="contentone">
-     <text class="second">平凡的世界</text>
-     <text class="third">×</text>
-</view>
- <view class="contentone">
-     <text class="second">平凡的世界</text>
-     <text class="third">×</text>
-</view>
+  
+  <view class="contentone" wx:for="{{history}}" bindtap="remindTap" data-search="{{item}}">
+     <text class="second">{{item}}</text>
+  </view>

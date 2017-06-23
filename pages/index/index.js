@@ -116,8 +116,10 @@ Page({
     }
   },
   searchFocus:function(e){
+    
     wx.navigateTo({
       url: '/pages/search/search',
     })
+    
   }
 })

@@ -6,11 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    "books":[{
-      "name":"测试-书的名字",
-      "isbn":"1545454545",
-      "nullBook":true
-    }]
+    "books":[]
   },
 
   /**

@@ -1,0 +1,108 @@
+/* result.wxss */
+.container1{
+  width:100%;
+  margin-top:10rpx;
+}
+.usercodebig{
+  width:20%;
+  margin-left:2%;
+}
+.usercode{
+  width:86rpx;
+  height:86rpx;
+  margin-bottom:10px;
+
+}
+.usercodetext{
+  margin-left:-80rpx;
+  font-size:24rpx;
+  color:#1AAD19;
+}
+.userright{
+   width:78%;
+   height:80rpx;
+   border:2px solid #1AAD19;
+   border-radius:8px;
+   float:right;
+   margin-top:-14%;
+   margin-right: 2%;
+}
+.userimage-search{
+  width:60rpx;
+  height:60rpx;
+   position:absolute;
+   padding-top:11rpx;
+}
+.searchtext{
+  padding-left:80rpx;
+  padding-top:15rpx;
+}
+.slide-image{
+  width:100%;
+  height:450rpx;
+}
+swiper{
+  margin-top:16rpx;
+}
+.tableone{
+  width:100%;
+  margin: 0 auto;
+  margin-top:20rpx;
+}
+.tableone image{
+  width:14%;
+  margin-left: 9%;
+  height:120rpx;
+}
+.tableone span{
+  margin-left:12.5%;
+  font-size:24rpx;
+  list-style: center;
+  
+}
+.tableone td span{
+text-align:center;
+}
+.tableone .second{
+  margin-top:18rpx;
+}
+.listone{
+  width:100%;
+  margin-top:20rpx;
+}
+.listone .listleft{
+  width:35%;
+  margin-left:6%;
+}
+.listone .listleft image{
+ width:80%;
+ height:250rpx;
+}
+.listone .listright{
+  width:59%;
+  float:right;
+  margin-top: -30%;
+}
+.listright text{
+  font-size:24rpx;
+} 
+.listtwo{
+   width:85%;
+   font-size:24rpx;
+}
+.listtwo text{
+  color:grey;
+}
+.page{
+  margin-left: 10%;
+}
+.listtwo{
+  line-height:40rpx;
+  margin-left:10%;
+}
+.recommendBooks-item{
+  width:90%;
+  border:1px double #D8D8D8;
+  margin:0 auto;
+  margin-top:20rpx;
+}

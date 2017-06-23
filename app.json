@@ -11,7 +11,8 @@
     "pages/bookbasket/bookbasket",
     "pages/my/booklist/booklist",
     "pages/my/my",
-    "pages/pay/pay"
+    "pages/pay/pay",
+    "pages/search/result"
   ],
   "window": {
     "backgroundTextStyle": "light",

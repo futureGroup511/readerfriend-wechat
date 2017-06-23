@@ -1,0 +1,20 @@
+<view class="remind" style="margin:50rpx 100rpx;">
+{{remind}}
+</view>
+
+<view class="recommendBooks-item" wx:for="{{books}}">
+  <navigator url="/pages/book/detail?isbn={{item.isbn}}">
+  <view class="listone" bindtap="recommendBookTap" data-book="{{item}}">
+     <view class="listleft">
+         <image src="{{item.image}}"></image>
+     </view>
+      <view class="listright">
+         <text>{{item.name}}\n</text>
+         <text>作者：</text>
+         <text wx:for="{{item.author}}">{{item}} </text>
+         <text>\n</text>
+        <text>评分：{{item.rating}}</text>
+      </view>
+  </view>
+  </navigator>
+</view>

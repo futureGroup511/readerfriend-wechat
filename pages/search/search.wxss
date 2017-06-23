@@ -38,10 +38,14 @@ width:96%;
 margin:0 auto;
 margin-top:10rpx;
 border-bottom:1px solid #E3E3E3;
- padding-bottom:18rpx;
+padding: 20rpx 0;
+ height: 50rpx;
 }
 .content .first{
+  display: inline-block;
+  padding: 10rpx;
   font-size:30rpx;
+  float: left;
 }
 .contentone{
   width:96%;
@@ -57,4 +61,23 @@ margin:0 auto;
 }
 .contentone{
   margin-top:20rpx;
+}
+
+#remind{
+  position: fixed;
+  top:120rpx;
+  background: #FFF;
+  margin: 0 2%;
+  width:96%;
+}
+.remind-item{
+  padding:20rpx 0 20rpx 60rpx ;
+  width: 100%;
+  border-bottom: 1px solid #e5e5e5;
+}
+#cleanHistory{
+  display: inline-block;
+  padding: 10rpx;
+  float: right;
+  right: 20rpx;
 }
