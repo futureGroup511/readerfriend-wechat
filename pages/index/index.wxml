@@ -22,10 +22,10 @@
 </swiper>
 <view class="tableone">
  <tr>
-   <td><image src="/image/wenxue.png"></image></td>
-    <td><image src="/image/yishu.png"></image></td>
-     <td><image src="/image/qingchun.png"></image></td>
-     <td><image src="/image/xiaoshuo.png"></image></td>
+   <td><image bindtap="searchType" data-type="文学" src="/image/wenxue.png"></image></td>
+    <td><image bindtap="searchType" data-type="艺术" src="/image/yishu.png"></image></td>
+     <td><image bindtap="searchType" data-type="青春" src="/image/qingchun.png"></image></td>
+     <td><image bindtap="searchType" data-type="小说" src="/image/xiaoshuo.png"></image></td>
    </tr>
    <tr>
         <td><span>文学类</span></td>
@@ -34,10 +34,10 @@
          <td><span>小说类</span></td>
    </tr>
    <tr>
-   <td><image class="second" src="/image/kepu.png"></image></td>
-    <td><image class="second" src="/image/jisuanji.png"></image></td>
-     <td><image class="second" src="/image/zhexue.png"></image></td>
-     <td><image class="second" src="/image/caijing.png"></image></td>
+   <td><image bindtap="searchType" data-type="科普" class="second" src="/image/kepu.png"></image></td>
+    <td><image bindtap="searchType" data-type="计科" class="second" src="/image/jisuanji.png"></image></td>
+     <td><image bindtap="searchType" data-type="哲学" class="second" src="/image/zhexue.png"></image></td>
+     <td><image bindtap="searchType" data-type="财经" class="second" src="/image/caijing.png"></image></td>
    </tr>
    <tr>
         <td><span>科普类</span></td>

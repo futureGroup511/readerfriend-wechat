@@ -92,6 +92,17 @@ Page({
             "bookInfo": bookInfo
           });
           var tags = bookInfo.tags;
+          //添加用户标签
+          var tagNames = [];
+          for(var i =0;i<tags.length;i++){
+            tagNames[i] = tags[i].name;
+          }
+          app.myRequest({
+            'url': app.url('addUserTag'),
+            'data':{
+              'tags':tagNames
+            }
+          })
           var x = tags.length > 1 ? 1 : tags.length;
           var q = '';
           for (var i = 0; i < x; i++) {

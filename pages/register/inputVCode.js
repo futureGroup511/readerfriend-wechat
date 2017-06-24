@@ -81,15 +81,19 @@ Page({
     });
   },
   btnValidate:function(e){
+    wx.showLoading({
+      title: '验证中',
+    })
     var vCode = this.data.vCode;
     var that = this;
     var obj = {
       "url": app.url('newUser'),
       "data": { "vCode": vCode, "userInfo": app.globalData.userInfo},
       success:function(res){
+        wx.hideLoading();
         console.debug(res);
         if(res.data.result == 0){
-          wx.redirectTo({
+          wx.switchTab({
             url: '/pages/index/index',
           })
         }else{
@@ -100,6 +104,13 @@ Page({
           });
           console.debug("temp25")
         }
+      },
+      fail:function(res){
+        wx.hideLoading();
+        wx.showToast({
+          title: '网络错误,验证失败!',
+          image:'/image/error.png'
+        })
       }
     };
     app.myRequest(obj);

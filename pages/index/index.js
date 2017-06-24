@@ -39,12 +39,19 @@ Page({
         console.debug(res)
         var tags = res.data.tags
         if(tags && tags.length >0){
-          
           douban.searchByTag(tags[0],5,function(res){
             console.debug("获取图书成功")
             console.debug(res)
             that.setData({
               "recommendBooks":res.data.books
+            })
+          });
+        }else if(tags){
+          douban.searchByTag('生活', 5, function (res) {
+            console.debug("获取图书成功")
+            console.debug(res)
+            that.setData({
+              "recommendBooks": res.data.books
             })
           });
         }else{
@@ -120,6 +127,13 @@ Page({
     wx.navigateTo({
       url: '/pages/search/search',
     })
-    
+  },
+  searchType:function(e){
+    var type = e.currentTarget.dataset.type;
+    if(type){
+      wx.navigateTo({
+        url: '/pages/booktype/type?t='+type
+      })
+    }
   }
 })

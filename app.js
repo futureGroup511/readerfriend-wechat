@@ -1,9 +1,16 @@
 //app.js
+var app = getApp()
 App({
   onLaunch: function () {
-    //调用API从本地缓存中获取数据
-    
-   
+    console.debug("pingToken")
+    var that = this
+    var url = that.globalData.server.address + that.globalData.server.common + 'pingToken';
+    setInterval(function(){
+      console.debug("pingToken1")
+      that.myRequest({
+        'url':url
+      })
+    },1000*60);
   },
   getUserInfo:function(cb){
     var that = this
@@ -42,7 +49,7 @@ App({
     userInfo: null,
     token: "default",
     server:{
-      "address": "http://192.168.191.1:8080/",
+      "address": "https://three.jfree.top/",
       "prefix":"readerfriend/xiaochengxu/",
       "common":"readerfriend/common/",
       "static":"http://156jl23992.51mypc.cn:23742/static/"

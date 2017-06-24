@@ -1,23 +1,48 @@
-// remind.js
+// type.js
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    "icon":"success",
-    "remind":""
+    "remind":"搜索中..."
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.debug(options)
-    this.setData({
-      "icon":options.i,
-      "remind":options.r
-    })
+    var that = this
+    var type = options.t
+    console.debug(type)
+    var url = app.url('getBookByType');
+    app.myRequest({
+      'url':url,
+      'data':{
+        'type':type,
+        'page':'1',
+        'pageSize':20
+      },
+      success:function(res){
+        console.debug(res)
+        if(res.data.result == 0 && res.data.books.length>0){
+          that.setData({
+            'remind':'搜索结果:',
+            'books':res.data.books
+          })
+        }else{
+          that.setData({
+            'remind':'未找到书籍'
+          })
+        }
+      },
+      fail:function(res){
+        that.setData({
+          'remind':'网络错误,未找到结果'
+        })
+      }
+    });
   },
 
   /**
@@ -67,17 +92,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-  returnpage:function(e){
-    console.debug("返回按钮")
-    wx.navigateBack({
-      delta: 1
-    })
-  },
-  toindex:function(e){
-    console.debug("首页按钮")
-    wx.switchTab({
-      url: '/pages/index/index'
-    })
   }
 })
