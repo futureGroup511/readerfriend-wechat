@@ -9,3 +9,7 @@
 .refush-view{
   padding: 50rpx;
 }
+.remind-view{
+  text-align: center;
+  font-size:36rpx;
+}

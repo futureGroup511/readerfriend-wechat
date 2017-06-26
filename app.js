@@ -32,11 +32,14 @@ App({
   },
   //对网络请求的封装，自动带上token头部,参数请参见wx.request函数
   myRequest: function (obj){
+
+    if (!obj.header) {
+      obj.header = {
+        'Content-Type': 'json'
+      }
+    }
     if(! obj.method){
       obj.method = 'post';
-    }
-    if(! obj.header){
-      obj.header={};
     }
     obj.header.token = this.globalData.token;
     wx.request(obj);
